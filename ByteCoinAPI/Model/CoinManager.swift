@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CoinManagerDelegate {
-    func didUpdateWeather(_ weatherManager:CoinManager,weather:CoinModel)
+    func didUpdateCoin(_ coinManager:CoinManager,coin:CoinModel)
     func didFailWithError(error:Error)
 }
 struct CoinManager {
@@ -47,12 +47,12 @@ struct CoinManager {
                 if let safeData = data {
                  let dataString = String(data:safeData,encoding:.utf8)
                     print(dataString)
-//                    if let weather = self.parseJSON(safeData){
-//                        self.delegate?.didUpdateWeather(self, weather: weather)
+                    if let coin = self.parseJSON(safeData){
+                        self.delegate?.didUpdateCoin(self, coin: coin)
 //                        let weatherVC = WeatherViewController()
 //                        weatherVC.didUpdateWeather(weather: weather)
 //
-//                    }
+                    }
                     
                 }
             }
@@ -60,6 +60,31 @@ struct CoinManager {
             //④Start the task
             task.resume()
         }
+        
+    }
+    func parseJSON(_ coinData:Data) -> CoinModel?{
+        
+        let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode(CoinData.self, from: coinData)
+            
+            let rate = decodedData.rate
+            
+            print(rate)
+            
+            let coin = CoinModel(rate: rate)
+            
+            return coin
+            //print(weather.conditinName)
+            
+            
+            
+        } catch  {
+            delegate?.didFailWithError(error: error)
+            
+            return nil
+        }
+       
         
     }
 }

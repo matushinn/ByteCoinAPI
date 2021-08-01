@@ -16,13 +16,15 @@ class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var currencyPicker: UIPickerView!
     
-    let coinManager = CoinManager()
+    var coinManager = CoinManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         currencyPicker.dataSource = self
         currencyPicker.delegate = self
+        
+        coinManager.delegate = self
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -43,12 +45,15 @@ class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
         coinManager.getCoinPrice(for: selectedCurrency)
         
     }
-    func didUpdateWeather(_ weatherManager: CoinManager, weather: CoinModel) {
+    func didUpdateCoin(_ coinManager: CoinManager, coin: CoinModel) {
+        DispatchQueue.main.async {
+            print(coin.rateString)
+        }
         
     }
     
     func didFailWithError(error: Error) {
-        
+        print(error)
     }
     
 
