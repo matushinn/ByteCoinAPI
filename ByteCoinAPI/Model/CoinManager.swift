@@ -20,6 +20,8 @@ struct CoinManager {
     
     var delegate:CoinManagerDelegate?
     
+    
+    
     func getCoinPrice(for currency:String){
         //api通信
         let urlString = "\(baseURL)/\(currency)?apikey=\(apiKey)"
@@ -45,8 +47,8 @@ struct CoinManager {
                 
                 
                 if let safeData = data {
-                 let dataString = String(data:safeData,encoding:.utf8)
-                    print(dataString)
+                 //let dataString = String(data:safeData,encoding:.utf8)
+                    // print(dataString)
                     if let coin = self.parseJSON(safeData){
                         self.delegate?.didUpdateCoin(self, coin: coin)
 //                        let weatherVC = WeatherViewController()
@@ -69,10 +71,11 @@ struct CoinManager {
             let decodedData = try decoder.decode(CoinData.self, from: coinData)
             
             let rate = decodedData.rate
+            let currency = decodedData.asset_id_quote
             
             print(rate)
             
-            let coin = CoinModel(rate: rate)
+            let coin = CoinModel(rate: rate, currencyName:currency)
             
             return coin
             //print(weather.conditinName)

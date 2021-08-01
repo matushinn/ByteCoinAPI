@@ -47,7 +47,8 @@ class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
     }
     func didUpdateCoin(_ coinManager: CoinManager, coin: CoinModel) {
         DispatchQueue.main.async {
-            print(coin.rateString)
+            self.bitcoinLabel.text = coin.rateString
+            self.currencyLabel.text = coin.currencyName
         }
         
     }
