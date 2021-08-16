@@ -1,3 +1,4 @@
+![Animated GIF-downsized](https://user-images.githubusercontent.com/44314610/129511043-adcf559b-f6e4-4e29-9597-63b289f05a3f.gif)
 # ByteCoinAPI
 
 ## 何を作るのか？
