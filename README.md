@@ -1,6 +1,9 @@
 # ByteCoinAPI
 SwiftでBytecoinAPIを使ってビットコインアプリを作ってみたいと思います。
 初心者にもわかりやすく、AutoLayoutの設定、デザインパターン、コードの可読性もしっかり守っているので、APIの入門記事としてはぴったりかなと。
+まず完成形はこちら！
+![ezgif.com-gif-maker (1).gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/325764/3b5eb3b6-9c6b-cf6a-ccec-e85358a71fd1.gif)
+
 では始めていきます。ぜひ最後までご覧ください。
 
 ## UIの設計
@@ -227,10 +230,9 @@ UIPickerViewの処理は[UIPickerView](https://developer.apple.com/documentation
 
 ## 終わりに
 以上でこのようなアプリが作成できました。
-![Animated GIF-downsized.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/325764/ac9b72b9-53e0-9441-2294-c4e2a313a08f.gif)
+![ezgif.com-gif-maker (1).gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/325764/3b5eb3b6-9c6b-cf6a-ccec-e85358a71fd1.gif)
 
 指摘点がありましたら、コメントでもよろしくお願いします。
-
 
 
 
